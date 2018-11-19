@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel-heading">Categories</div>
+  <div class="panel-body">
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre Categoria</th>
+      <th>Cantidad de productos</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @categories.each.with_index(1) do |category, index| %>
+      <tr>
+        <td><%= link_to category.name, category %></td>
+        <td><%= @count[index] %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'New Category', new_category_path %>
